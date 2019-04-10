@@ -1,0 +1,17 @@
+{
+	"name": "gyroid",
+	"version": "2.0.0",
+	"description": "A Discord bot",
+	"main": "index",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"addons": [{
+		"plan": "heroku-postgresql:hobby-dev",
+		"options": {
+			"version": "9.5"
+		}
+	}],
+	"author": "Guillaume Getkoz",
+	"license": "ISC"
+}
