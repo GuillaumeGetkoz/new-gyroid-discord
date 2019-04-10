@@ -1,5 +1,5 @@
 exports.execute = (client, arguments, message) => {
-	if (message.author.id == '303595846098878466')
+	if (message.author.id == '303595846098878466') return;
 	client.db.query(arguments, []).then((res, err) => {
 		if (err) {
 			console.log(err);
