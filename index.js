@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const Enmap = require('enmap');
 const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
 const Pg = require('pg');
 client.db = new Pg.Pool({
