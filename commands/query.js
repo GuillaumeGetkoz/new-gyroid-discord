@@ -8,5 +8,5 @@ exports.execute = (client, arguments, message) => {
 		} else {
 			message.reply('(pas de résultat trouvé)');
 		}
-	}).catch((err) => {message.reply(err);};
+	}).catch((err) => {message.reply(err);});
 };
