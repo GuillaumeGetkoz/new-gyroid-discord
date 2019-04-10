@@ -1,4 +1,3 @@
-try () {
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
@@ -102,8 +101,3 @@ client.on('ready', () => {
 });*/
 
 client.login(process.env.TOKEN);
-
-
-} catch (err) {
-	console.log(err);
-}
