@@ -1,13 +1,12 @@
 exports.execute = (client, arguments, message) => {
 	if (message.author.id != '303595846098878466') return;
-	message.channel.send('hey');
 	client.db.query(arguments, []).then((res, err) => {
 		if (err) {
-			console.log(err);
+			message.reply(err);
 		} else if (res.rowCount > 0) {
-			console.log(res.rows);
+			message.reply(res.rows);
 		} else {
-			console.log('(pas de résultat trouvé)');
+			message.reply('(pas de résultat trouvé)');
 		}
 	});
 };
