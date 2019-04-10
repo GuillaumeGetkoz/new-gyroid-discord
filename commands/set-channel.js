@@ -15,8 +15,8 @@ exports.execute = async (client, arguments, message) => {
         } else {
             request = 'UPDATE channels SET type = $2 WHERE id = $1';
         }
+        var mess = await client.translate('set-channel', message.author.id);
         client.db.query(request, [arguments.match(argsDetector)[1], arguments.match(argsDetector)[2], message.guild.id]).then((data) => {
-            var mess = await client.translate('set-channel', message.author.id);
             message.reply(mess);
         });
     });
