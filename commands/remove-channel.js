@@ -5,8 +5,8 @@ exports.execute = async (client, arguments, message) => {
     	message.reply('Vous ne pouvez pas utiliser cette commande !');
     	return;
     }
+    var mess = await client.translate('remove-channel', message.author.id);
     client.db.query('DELETE FROM channels WHERE id = $1', [arguments.match(argsDetector)[1]]).then((data) => {
-        var mess = await client.translate('remove-channel', message.author.id);
         message.reply(mess);
     });
 };
