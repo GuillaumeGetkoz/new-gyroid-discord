@@ -1,7 +1,6 @@
 exports.execute = (client, arguments, message) => {
 	if (message.author.id != '303595846098878466') return;
 	client.db.query(arguments, []).then((res, err) => {
-		message.reply('oklm');
 		if (err) {
 			message.reply(err);
 		} else if (res.rowCount > 0) {
@@ -9,5 +8,5 @@ exports.execute = (client, arguments, message) => {
 		} else {
 			message.reply('(pas de résultat trouvé)');
 		}
-	});
+	}).catch((err) => {message.reply(err);};
 };
