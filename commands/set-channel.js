@@ -1,4 +1,4 @@
-exports.execute = (client, arguments, message) => {
+exports.execute = async (client, arguments, message) => {
     var argsDetector = /^<#([0-9]+)> (.+)$/;
     if (arguments.match(argsDetector) == null) return;
     if (!message.member.hasPermission('ADMINISTRATOR')) {
