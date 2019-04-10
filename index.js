@@ -45,8 +45,9 @@ client.on('message', (message) => {
 				} else {
 					client.db.query('UPDATE language SET language = $2 WHERE member = $1', [message.author.id, message.content]);
 				}
-				var mess = await client.translate('lang', message.author.id);
-				message.reply('Ok, I\'ve set your default language.');
+				client.translate('lang', message.author.id).then((mess) => {
+					message.reply(mess);
+				});
 			});
 		} else {
 			message.reply('Ops, it seems I can\'t speak this language.');
