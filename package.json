@@ -1,17 +1,31 @@
 {
-	"name": "gyroid",
-	"version": "2.0.0",
-	"description": "A Discord bot",
-	"main": "index",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"addons": [{
-		"plan": "heroku-postgresql:hobby-dev",
-		"options": {
-			"version": "9.5"
-		}
-	}],
-	"author": "Guillaume Getkoz",
-	"license": "ISC"
+  "name": "gyroid",
+  "version": "2.0.0",
+  "description": "A Discord bot",
+  "main": "index",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "author": "Guillaume Getkoz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuillaumeGetkoz/new-gyroid-discord.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuillaumeGetkoz/new-gyroid-discord/issues"
+  },
+  "homepage": "https://github.com/GuillaumeGetkoz/new-gyroid-discord#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "pg": "^7.9.0"
+  }
 }
