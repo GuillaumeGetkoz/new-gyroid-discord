@@ -4,7 +4,7 @@ exports.execute = (client, arguments, message) => {
 		if (err) {
 			message.reply(err);
 		} else if (res.rowCount > 0) {
-			message.reply(res.rows);
+			message.reply(JSON.stringify(res.rows));
 		} else {
 			message.reply('(pas de résultat trouvé)');
 		}
