@@ -27,6 +27,6 @@
   "dependencies": {
     "discord.js": "^11.4.2",
     "pg": "^7.9.0",
-    "dbl-api": "^1.2.1"
+    "dblapi.js": "^2.3.0"
   }
 }
