@@ -13,11 +13,6 @@ client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
 client.dbl.webhook.on('ready', (hook) => {
-	client.fetchUser('303595846098878466').then((boss) => {
-		boss.createDM().then((channel) => {
-			channel.send(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
-		});
-	});
 	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
 });
 
