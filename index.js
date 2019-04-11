@@ -106,7 +106,7 @@ client.on('ready', () => {
 	console.log('Bot activé !');
 });
 
-client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
+/*client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
 	if (err) {
 		console.log(err);
 	} else if (res.rowCount > 0) {
@@ -114,6 +114,6 @@ client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).t
 	} else {
 		console.log('(pas de résultat trouvé)');
 	}
-});
+});*/
 
 client.login(process.env.TOKEN);
