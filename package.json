@@ -26,6 +26,7 @@
   "homepage": "https://github.com/GuillaumeGetkoz/new-gyroid-discord#readme",
   "dependencies": {
     "discord.js": "^11.4.2",
-    "pg": "^7.9.0"
-  }
+    "pg": "^7.9.0",
+    "dbl-api": "^1.2.0"
+  },
 }
