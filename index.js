@@ -2,13 +2,28 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
 const Pg = require('pg');
+const DBL = require('dblapi.js');
 client.db = new Pg.Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: true
 });
+client.dbl = new DBL(process.env.DBL, {webhookPort: 5000, webhookAuth: 'gyroidvote'});
 client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
+
+client.dbl.webhook.on('ready', (hook) => {
+	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
+});
+
+client.dbl.webhook.on('vote', (vote) => {
+	client.fetchUser('303595846098878466').then((boss) => {
+		boss.createDM().then((channel) => {
+			channel.send('<@' + vote.user + '> a voté pour Gyroïd, quel brave homme !');
+		});
+	});
+	client.db.query('INSERT INTO votes VALUES($1, $2)', [vote.user, Date.now()]);
+});
 
 client.translate = async (code, userId) => {
 	var userLang = await client.db.query('SELECT language FROM language WHERE member = $1', [userId]);
