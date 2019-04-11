@@ -54,3 +54,8 @@ CREATE TABLE language (
 	member bigserial,
 	language text
 );
+
+CREATE TABLE votes (
+	member bigserial,
+	moment timestamp
+);
