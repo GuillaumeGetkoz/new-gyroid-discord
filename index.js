@@ -22,7 +22,7 @@ client.dbl.webhook.on('vote', (vote) => {
 			channel.send('<@' + vote.user + '> a voté pour Gyroïd, quel brave homme !');
 		});
 	});
-	client.db.query('INSERT INTO votes VALUES($1, $2)', [vote.user, Date.now()]);
+	client.db.query('INSERT INTO votes VALUES($1, NOW());', [vote.user]);
 });
 
 client.translate = async (code, userId) => {
