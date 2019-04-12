@@ -110,7 +110,7 @@ client.on('ready', () => {
 	if (isOk) {
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
-				channel.send('<@' + vote.user + '> a voté pour Gyroïd, quel brave homme !');
+				channel.send('webhook is ready');
 			});
 		});
 	}
