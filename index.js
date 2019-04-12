@@ -18,13 +18,6 @@ client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'rem
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
-var server = http.createServer((req, res) => {
-  	res.writeHead(200);
-  	res.end('Bon, ce site ne sert à rien !');
-});
-
-server.listen(8080);
-
 var isOk = '';
 
 client.dbl.webhook.on('ready', (hook) => {
