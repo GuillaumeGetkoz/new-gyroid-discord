@@ -8,7 +8,12 @@ client.db = new Pg.Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: true
 });
-client.dbl = new DBL(process.env.DBL, {webhookPort: 8080, webhookAuth: 'gyroidvote'});
+var server = http.createServer((req, res) => {
+  	res.writeHead(200);
+  	res.end('Bon, ce site ne sert à rien !');
+});
+server.listen(8080);
+client.dbl = new DBL(process.env.DBL, {webhookServer: server, webhookPort: 8080, webhookAuth: 'gyroidvote'});
 client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
