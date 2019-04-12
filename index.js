@@ -17,11 +17,11 @@ client.dbl.webhook.on('ready', (hook) => {
 });
 
 client.dbl.webhook.on('vote', (vote) => {
-	client.fetchUser('303595846098878466').then((boss) => {
+	/*client.fetchUser('303595846098878466').then((boss) => {
 		boss.createDM().then((channel) => {
 			channel.send('<@' + vote.user + '> a voté pour Gyroïd, quel brave homme !');
 		});
-	});
+	});*/
 	client.db.query('INSERT INTO votes VALUES($1, NOW());', [vote.user]);
 });
 
