@@ -12,10 +12,10 @@ client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'rem
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
-var isOk = false;
+var isOk = '';
 
 client.dbl.webhook.on('ready', (hook) => {
-	isOk = true;
+	isOk = `Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`;
 	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
 });
 
@@ -107,7 +107,7 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
-	if (isOk) {
+	if (isOk != '') {
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
 				channel.send('webhook is ready');
