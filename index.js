@@ -12,7 +12,10 @@ client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'rem
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
+var isOk = false;
+
 client.dbl.webhook.on('ready', (hook) => {
+	isOk = true;
 	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
 });
 
@@ -104,6 +107,13 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
+	if (isOk) {
+		client.fetchUser('303595846098878466').then((boss) => {
+			boss.createDM().then((channel) => {
+				channel.send('<@' + vote.user + '> a voté pour Gyroïd, quel brave homme !');
+			});
+		});
+	}
 });
 
 /*client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
