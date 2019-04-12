@@ -12,6 +12,10 @@ client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'rem
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
+client.dbl.webhook.on('ready', (hook) => {
+	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
+});
+
 client.dbl.webhook.on('vote', (vote) => {
 	/*client.fetchUser('303595846098878466').then((boss) => {
 		boss.createDM().then((channel) => {
@@ -100,14 +104,6 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
-	client.dbl.webhook.on('ready', (hook) => {
-		client.fetchUser('303595846098878466').then((boss) => {
-			boss.createDM().then((channel) => {
-				channel.send('Le webhook est ready !');
-			});
-		});
-		console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
-	});
 });
 
 /*client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
