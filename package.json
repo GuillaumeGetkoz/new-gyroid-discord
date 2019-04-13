@@ -4,6 +4,8 @@
   "description": "A Discord bot",
   "main": "index",
   "scripts": {
+    "start": "node index.js",
+    "server": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "addons": [
