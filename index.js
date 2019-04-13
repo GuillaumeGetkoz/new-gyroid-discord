@@ -4,10 +4,11 @@ const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
 const Pg = require('pg');
 const DBL = require('dblapi.js');
 const http = require('http');
-const server = http.createServer((req, res) => {
+var server = http.createServer((req, res) => {
   	res.writeHead(200);
   	res.end('Salut tout le monde !');
 });
+server.listen(80);
 client.db = new Pg.Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: true
