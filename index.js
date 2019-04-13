@@ -9,10 +9,10 @@ client.db = new Pg.Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: true
 });
-app.get('/', function (req, res) {
+/*app.get('/', function (req, res) {
   	res.send('Hello World');
 });
-app.listen(80);
+app.listen(80);*/
 client.dbl = new DBL(process.env.DBL, {/*webhookServer: server, */webhookPort: 8080, webhookAuth: 'gyroidvote'});
 client.commands = ['help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
 client.nbErrors = 0;
