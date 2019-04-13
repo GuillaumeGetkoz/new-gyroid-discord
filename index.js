@@ -4,7 +4,7 @@ const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
 const Pg = require('pg');
 const DBL = require('dblapi.js');
 const http = require('http');
-var server = http.createServer((req, res) => {
+const server = http.createServer((req, res) => {
   	res.writeHead(200);
   	res.end('Salut tout le monde !');
 });
