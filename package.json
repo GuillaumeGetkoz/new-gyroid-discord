@@ -25,8 +25,9 @@
   },
   "homepage": "https://github.com/GuillaumeGetkoz/new-gyroid-discord#readme",
   "dependencies": {
+    "dblapi.js": "^2.3.0",
     "discord.js": "^11.4.2",
-    "pg": "^7.9.0",
-    "dblapi.js": "^2.3.0"
+    "express": "^4.16.4",
+    "pg": "^7.9.0"
   }
 }
