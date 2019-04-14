@@ -18,8 +18,8 @@ exports.execute = async (client, message) => {
             var elDetector = /^"(.*)" (([0-9]+) (.+)*)$/;
             if (el.match(elDetector) == null) return;
             if (moneys.rows.find(ele => ele.moneys == el.match(elDetector)[4]) == undefined && moneys.rowCount != 0) {
+                var mess = await client.translate('sell.money', message.author.id);
                 message.author.createDM().then((channel) => {
-                    var mess = await client.translate('sell.money', message.author.id);
                     channel.send(mess);
                 });
                 return;
