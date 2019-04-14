@@ -7,19 +7,16 @@ exports.execute = async (client, arguments, message) => {
     	return;
     }
     var request = '';
-    var prepared = [];
     var types = ['sell', 'buy', 'sellers', 'say', 'test'];
     if (!types.includes(arguments.match(argsDetector)[2])) return;
     var mess = await client.translate('set-channel', message.author.id);
     client.db.query('SELECT type FROM channels WHERE id = $1', [arguments.match(argsDetector)[1]]).then((data) => {
         if (data.rowCount == 0) {
             request = 'INSERT INTO channels VALUES($1, $3, $2);';
-            prepared = [arguments.match(argsDetector)[1], arguments.match(argsDetector)[2], message.guild.id];
         } else {
-            request = 'UPDATE channels SET type = $2 WHERE id = $1';
-            prepared = [arguments.match(argsDetector)[1], arguments.match(argsDetector)[2]]
+            request = 'UPDATE channels SET type = $2 WHERE id = $1 AND guild = $3';
         }
-        client.db.query(request, prepared).then((data) => {
+        client.db.query(request, [arguments.match(argsDetector)[1], arguments.match(argsDetector)[2], message.guild.id]).then((data) => {
             message.reply(mess);
         });
     });
