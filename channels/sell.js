@@ -14,11 +14,11 @@ exports.execute = async (client, message) => {
         var id = client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
         id = id.rows[0].id;
         var moneys = await client.db.query('SELECT * FROM moneys WHERE guild = $1', [message.guild.id]);
+        var mess = await client.translate('sell.money', message.author.id);
         message.content.match(argsDetector).forEach((el) => {
             var elDetector = /^"(.*)" (([0-9]+) (.+)*)$/;
             if (el.match(elDetector) == null) return;
             if (moneys.rows.find(ele => ele.moneys == el.match(elDetector)[4]) == undefined && moneys.rowCount != 0) {
-                var mess = await client.translate('sell.money', message.author.id);
                 message.author.createDM().then((channel) => {
                     channel.send(mess);
                 });
