@@ -1,7 +1,7 @@
 exports.execute = async (client, arguments, message) => {
     message.reply('test');
     var argsDetector = /^<#([0-9]+)> (.+)$/;
-    if (arguments.match(argsDetector) == null) return;
+    if (arguments.match(argsDetector) == null) message.reply('go');
     if (!message.member.hasPermission('ADMINISTRATOR')) {
         var mess = await client.translate('noAdmin', message.author.id);
     	message.reply(mess);
