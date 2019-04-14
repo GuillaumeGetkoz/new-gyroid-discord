@@ -1,5 +1,4 @@
 exports.execute = async (client, arguments, message) => {
-    message.channel.send('test');
     var argsDetector = /^<#([0-9]+)> (.+)$/;
     if (arguments.match(argsDetector) == null) return;
     if (!message.member.hasPermission('ADMINISTRATOR')) {
