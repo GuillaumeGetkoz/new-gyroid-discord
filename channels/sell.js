@@ -3,15 +3,15 @@ exports.execute = async (client, message) => {
     var collDetector = /^"(.*)"\n/;
     var fields = [];
     if (message.content.match(argsDetector) == null) {
+        var mess = await client.translate('sell.syntax', message.author.id);
         message.author.createDM().then((channel) => {
-            var mess = await client.translate('sell.syntax', message.author.id);
             channel.send(mess);
         });
         message.delete();
         return;
     }
     if (!message.content.match(collDetector)) {
-        var id = await client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
+        var id = client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
         id = id.rows[0].id;
         var moneys = await client.db.query('SELECT * FROM moneys WHERE guild = $1', [message.guild.id]);
         message.content.match(argsDetector).forEach((el) => {
