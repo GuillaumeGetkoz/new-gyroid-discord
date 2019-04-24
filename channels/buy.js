@@ -30,7 +30,7 @@ exports.execute = async (client, message) => {
         results.rows.forEach((val) => {
             fields.push({
                 "name": val.name,
-                "value": mess3 + " : <@" + val.author + ">\n" + val.price + "ID : " + val.id + "\n[" + mess4 + "](" + val.link + ")"
+                "value": mess3 + " : <@" + val.author + ">\n" + val.price + "\nID : " + val.id + "\n[" + mess4 + "](" + val.link + ")"
             });
         });
     }
