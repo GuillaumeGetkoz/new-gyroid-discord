@@ -12,8 +12,7 @@ exports.execute = async (client, message) => {
     }
     if (!message.content.match(collDetector)) {
         var id = client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
-        //id = id.rows[0].id;
-        id = 1;
+        id = id.rows[0].id;
         var moneys = await client.db.query('SELECT * FROM moneys WHERE guild = $1', [message.guild.id]);
         var mess = await client.translate('sell.money', message.author.id);
         message.content.match(argsDetector).forEach((el) => {
