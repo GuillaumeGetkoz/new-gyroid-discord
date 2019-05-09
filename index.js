@@ -115,7 +115,7 @@ client.on('ready', () => {
 	console.log('Bot activé !');
 	var mess = '';
 	client.db.query('SELECT * FROM votes').then((votes) => {
-		votes.forEach((val) => {
+		votes.rows.forEach((val) => {
 			mess += '- <@' + val.member + '> a voté pour Gyroïd à' + val.moment;
 		});
 		client.fetchUser('303595846098878466').then((boss) => {
