@@ -113,14 +113,13 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
-	var votes = await client.db.query('SELECT * FROM votes');
-	if (isOk != '') {
+	client.db.query('SELECT * FROM votes').then((votes) => {
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
 				channel.send(votes);
 			});
 		});
-	}
+	});
 });
 
 /*client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
