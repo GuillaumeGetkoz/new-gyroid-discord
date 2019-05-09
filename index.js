@@ -113,10 +113,14 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
+	var mess = '';
 	client.db.query('SELECT * FROM votes').then((votes) => {
+		votes.forEach((val) => {
+			mess += '- <@' + val.member + '> a voté pour Gyroïd à' + val.moment;
+		});
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
-				channel.send(JSON.stringify(votes.rows));
+				channel.send(mess);
 			});
 		});
 	});
