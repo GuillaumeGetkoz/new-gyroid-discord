@@ -116,7 +116,7 @@ client.on('ready', () => {
 	var mess = '';
 	client.db.query('SELECT * FROM votes').then((votes) => {
 		votes.rows.forEach((val) => {
-			mess += '- <@' + val.member + '> a voté pour Gyroïd à' + val.moment;
+			mess += '- <@' + val.member + '> a voté pour Gyroïd à' + val.moment + '\n';
 		});
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
