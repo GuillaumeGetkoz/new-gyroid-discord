@@ -113,10 +113,11 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
+	var votes = await client.db.query('SELECT * FROM votes');
 	if (isOk != '') {
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
-				channel.send(isOk);
+				channel.send(votes);
 			});
 		});
 	}
