@@ -116,7 +116,7 @@ client.on('ready', () => {
 	client.db.query('SELECT * FROM votes').then((votes) => {
 		client.fetchUser('303595846098878466').then((boss) => {
 			boss.createDM().then((channel) => {
-				channel.send(votes);
+				channel.send(JSON.stringify(votes.rows));
 			});
 		});
 	});
