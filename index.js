@@ -20,7 +20,7 @@ client.avalaibleLang = ['fr', 'en'];
 
 var isOk = '';
 
-client.dbl.webhook.on('ready', (hook) => {
+/*client.dbl.webhook.on('ready', (hook) => {
 	isOk = `Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`;
 	console.log(`Le webhook a l'adresse http://${hook.hostname}:${hook.port}${hook.path} est prêt !`);
 });
@@ -32,7 +32,7 @@ client.dbl.webhook.on('vote', (vote) => {
 		});
 	});
 	client.db.query('INSERT INTO votes VALUES($1, NOW());', [vote.user]);
-});
+});*/
 
 client.translate = async (code, userId) => {
 	var userLang = await client.db.query('SELECT language FROM language WHERE member = $1', [userId]);
