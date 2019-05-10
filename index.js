@@ -4,16 +4,16 @@ const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
 const Pg = require('pg');
 const DBL = require('dblapi.js');
 const http = require('http');
-const server = http.createServer((req, res) => {
+/*const server = http.createServer((req, res) => {
   	res.writeHead(200);
   	res.end('Salut tout le monde !');
-});
+});*/
 client.db = new Pg.Pool({
 	connectionString: process.env.DATABASE_URL,
 	ssl: true
 });
-server.listen(process.env.PORT || 3000);
-client.dbl = new DBL(process.env.DBL, {webhookServer: server, webhookAuth: 'gyroidvote'});
+//server.listen(process.env.PORT || 3000);
+//client.dbl = new DBL(process.env.DBL, {webhookServer: server, webhookAuth: 'gyroidvote'});
 client.commands = ['votes', 'help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
