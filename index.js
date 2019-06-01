@@ -113,7 +113,7 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
-	var mess = '';
+	/*var mess = '';
 	client.db.query('SELECT * FROM votes').then((votes) => {
 		votes.rows.forEach((val) => {
 			mess += '- <@' + val.member + '> a voté pour Gyroïd à' + val.moment + '\n';
@@ -123,7 +123,7 @@ client.on('ready', () => {
 				channel.send(mess);
 			});
 		});
-	});
+	});*/
 });
 
 /*client.db.query('CREATE TABLE votes (member bigserial,moment timestamp);', []).then((res, err) => {
