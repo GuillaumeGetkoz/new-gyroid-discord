@@ -50,7 +50,7 @@ exports.execute = async (client, message) => {
         } else {
             var url = '';
         }
-        var id = await client.db.query('SELECT id FROM articles ODER BY id DESC LIMIT 1');
+        var id = await client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
         id = id.rows[0].id;
         message.channel.send('', {"embed": {
             "author": {
