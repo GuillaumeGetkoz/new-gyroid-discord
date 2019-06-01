@@ -5,6 +5,7 @@ exports.execute = async (client, message) => {
     if (message.content.match(argsDetector) == null) {
         var buy = require('./buy');
         buy.execute(client, message);
+        return;
     }
     if (!message.content.match(collDetector)) {
         var id = await client.db.query('SELECT id FROM articles ORDER BY id DESC LIMIT 1');
