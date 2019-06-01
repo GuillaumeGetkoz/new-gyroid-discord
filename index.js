@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const commandDetector = /^\!market ([a-z-]*) ?(.*)$/;
+const commandDetector = /^\!market ([a-z-]*) ?(.*)/;
 const Pg = require('pg');
 const DBL = require('dblapi.js');
 const http = require('http');
