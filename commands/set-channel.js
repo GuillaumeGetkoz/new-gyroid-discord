@@ -7,7 +7,7 @@ exports.execute = async (client, arguments, message) => {
     	return;
     }
     var request = '';
-    var types = ['sell', 'buy', 'sellers', 'say', 'test'];
+    var types = ['sell', 'buy', 'sellers', 'say', 'sell-buy'];
     if (!types.includes(arguments.match(argsDetector)[2])) return;
     var mess = await client.translate('set-channel', message.author.id);
     client.db.query('SELECT type FROM channels WHERE id = $1', [arguments.match(argsDetector)[1]]).then((data) => {
