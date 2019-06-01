@@ -77,6 +77,7 @@ exports.execute = async (client, message) => {
                 "image": {
                     "url": url
                 },
+                "title": message.content.match(collDetector)[1],
                 "author": {
                     "name": message.author.username,
                     "icon_url": message.author.avatarURL
