@@ -25,14 +25,14 @@ exports.execute = async (client, message) => {
         var mess2 = await client.translate('buy.2', message.author.id);
         var mess3 = await client.translate('buy.3', message.author.id);
         var mess4 = await client.translate('buy.4', message.author.id);
-        title = mess1 + ' "' + message.content.match(argsDetector)[1] + '"';
-        description = fields.length + ' ' + mess2;
         results.rows.forEach((val) => {
             fields.push({
                 "name": val.name,
                 "value": mess3 + " : <@" + val.author + ">\n" + val.price + "\nID : " + val.id + "\n[" + mess4 + "](" + val.link + ")"
             });
         });
+	title = mess1 + ' "' + message.content.match(argsDetector)[1] + '"';
+        description = fields.length + ' ' + mess2;
     }
     message.channel.send('', {"embed": {
     	"title": title,
