@@ -14,7 +14,7 @@ client.db = new Pg.Pool({
 });
 //server.listen(process.env.PORT || 3000);
 //client.dbl = new DBL(process.env.DBL, {webhookServer: server, webhookAuth: 'gyroidvote'});
-client.commands = ['search', 'votes', 'help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
+client.commands = ['say', 'search', 'votes', 'help', 'set-channel', 'remove-channel', 'add-wishlist', 'remove-wishlist', 'clear-wishlist', 'finish', 'confirm', 'remove-star', 'update-profile', 'add-moneys', 'remove-moneys', 'get-moneys', 'get-profile', 'leaderboard', 'get-ranking', 'create-reward', 'delete-reward', 'get-rewards', 'remove-article', 'query'];
 client.nbErrors = 0;
 client.avalaibleLang = ['fr', 'en'];
 
@@ -113,6 +113,7 @@ client.on('message', (message) => {
 
 client.on('ready', () => {
 	console.log('Bot activé !');
+	client.user.setActivity("s'occuper des ventes");
 	/*var mess = '';
 	client.db.query('SELECT * FROM votes').then((votes) => {
 		votes.rows.forEach((val) => {
